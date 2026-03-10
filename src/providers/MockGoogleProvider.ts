@@ -8,7 +8,7 @@ export class MockGoogleProvider implements ICalendarProvider {
   async getTasks(): Promise<Task[]> {
     return [
       {
-        id: 'E001',
+        id: 'g-001',
         title: 'Swim class',
         source: this.getProviderName(),
         type: 'event',

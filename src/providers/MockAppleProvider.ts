@@ -8,7 +8,7 @@ export class MockAppleProvider implements ICalendarProvider {
   async getTasks(): Promise<Task[]> {
     return [
       {
-        id: 'E034',
+        id: 'a-001',
         title: 'Drop-off easter baskets',
         source: this.getProviderName(),
         type: 'todo',
@@ -18,14 +18,13 @@ export class MockAppleProvider implements ICalendarProvider {
         dueDate: new Date('2026-03-22'),
       },
       {
-        id: 'E090',
+        id: 'a-002',
         title: 'Grocery shopping',
         source: this.getProviderName(),
         type: 'todo',
         status: 'pending',
         priority: 'whenever',
         assignedTo: 'mom',
-        dueDate: new Date('2026-03-22'),
         description: 'milk, eggs',
       },
     ];
