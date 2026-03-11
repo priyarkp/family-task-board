@@ -44,15 +44,19 @@ tests/
 ## Design Decisions
 
 **Provider interface pattern**
+
 All calendar sources implement a common `ICalendarProvider` interface, making it plug-and-play to add new integrations. A real `GoogleCalendarProvider` could replace the mock without changing any other part of the system. This also means a real provider would include a mapping layer to translate the raw API response (e.g. Google's `summary` and `start.dateTime`) into the common `Task` shape.
 
 **Promise.allSettled over Promise.all**
+
 Services go down. `Promise.allSettled` ensures that if one provider fails, the board still displays tasks from the remaining sources — rather than failing entirely. Failed providers are logged by name for visibility.
 
 **Retry mechanism**
+
 Network blips and third-party delays are common. Each provider call is wrapped in a retry mechanism (3 attempts by default) before being marked as failed, making the system more resilient to transient errors.
 
 **Dedupe logic**
+
 Many family calendars are synced with each other, so the same event can appear from multiple sources. Tasks are deduplicated by `title + dueDate` to keep the board clean and readable.
 
 ## What I'd Add Next
