@@ -14,3 +14,12 @@ export interface Task {
   dueDate?: Date;
   description?: string;
 }
+
+export function isOverdue(task: Task): boolean {
+  const today = new Date();
+  return (
+    task.status === 'pending' &&
+    task.dueDate !== undefined &&
+    task.dueDate < today
+  );
+}

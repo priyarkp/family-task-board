@@ -15,7 +15,7 @@ export class MockAppleProvider implements ICalendarProvider {
         status: 'pending',
         priority: 'whenever',
         assignedTo: 'mom',
-        dueDate: new Date('2026-03-22'),
+        dueDate: new Date('2026-03-22T12:00:00'),
       },
       {
         id: 'a-002',
@@ -26,6 +26,16 @@ export class MockAppleProvider implements ICalendarProvider {
         priority: 'whenever',
         assignedTo: 'mom',
         description: 'milk, eggs',
+      },
+      {
+        id: 'a-003',
+        title: 'Swim class',
+        source: this.getProviderName(),
+        type: 'event',
+        status: 'pending',
+        priority: 'urgent',
+        assignedTo: 'tiny1',
+        dueDate: new Date('2026-03-30T12:00:00'),
       },
     ];
   }
